@@ -7,12 +7,17 @@ hasCJKLanguage = true
 timeZone = 'Asia/Shanghai'
 enableRobotsTXT = true
 summaryLength = 90
-disableKinds = ['taxonomy', 'term']
+# 分类列表页 /categories/ 不需要单独入口，只保留「日报」这个分类页。
+disableKinds = ['taxonomy']
 
 [pagination]
   pagerSize = 50
 
-# 正文里的 date 优先。日报文件名是 YYYY-MM-DD.md 时，没写 date 也会用文件名。
+# 只用分类。日报是分类「日报」，菜单页是 /categories/日报/。
+[taxonomies]
+  category = 'categories'
+
+# 正文里的 date 优先。文件名是 YYYY-MM-DD.md 时，没写 date 也会用文件名。
 [frontmatter]
   date = ['date', ':filename', ':fileModTime', ':default']
 

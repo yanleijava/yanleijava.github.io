@@ -1,16 +1,16 @@
 {{ define "main" }}
-  {{ $reports := .RegularPages.ByDate.Reverse }}
+  {{ $posts := .RegularPages.ByDate.Reverse }}
   <header class="site-page-head">
     <h1 class="site-page-title">{{ .Title }}</h1>
     {{ with .Description }}
       <p class="site-page-lead">{{ . }}</p>
     {{ end }}
-    {{ with $reports }}
+    {{ with $posts }}
       <div class="page-meta">{{ (index . (sub (len .) 1)).Date.Format "2006" }} – {{ (index . 0).Date.Format "2006" }} · {{ len . }} 篇</div>
     {{ end }}
   </header>
-  {{ if $reports }}
-    {{ range $reports.GroupByDate "2006" }}
+  {{ if $posts }}
+    {{ range $posts.GroupByDate "2006" }}
       <section class="year" aria-labelledby="y-{{ .Key }}">
         <h2 id="y-{{ .Key }}" class="year-head">
           <span>{{ .Key }}</span>
@@ -29,6 +29,6 @@
       </section>
     {{ end }}
   {{ else }}
-    <p class="empty">还没有日报。</p>
+    <p class="empty">这个分类还没有文章。</p>
   {{ end }}
 {{ end }}
