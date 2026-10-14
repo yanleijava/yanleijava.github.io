@@ -4,12 +4,17 @@ theme = 'mifanr'
 locale = 'zh-CN'
 defaultContentLanguage = 'zh-hans'
 hasCJKLanguage = true
+timeZone = 'Asia/Shanghai'
 enableRobotsTXT = true
 summaryLength = 90
 disableKinds = ['taxonomy', 'term']
 
 [pagination]
   pagerSize = 50
+
+# 正文里的 date 优先。日报文件名是 YYYY-MM-DD.md 时，没写 date 也会用文件名。
+[frontmatter]
+  date = ['date', ':filename', ':fileModTime', ':default']
 
 [outputs]
   home = ['HTML', 'RSS']

@@ -492,6 +492,10 @@ body.site {
   gap: 20px;
 }
 
+.year-link .post-title {
+  min-width: 0;
+}
+
 .year-date {
   width: 44px;
   flex-shrink: 0;
@@ -862,5 +866,14 @@ body.site {
 
   .prose h2 {
     font-size: 20px;
+  }
+
+  .year-link {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .post-title {
+    overflow-wrap: anywhere;
   }
 }

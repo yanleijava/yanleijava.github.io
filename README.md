@@ -29,6 +29,7 @@ git push
 | `hugo.toml` | 站点名、介绍、产品列表、联系方式 |
 | `content/about.md` | 关于页 |
 | `content/posts/*.md` | 文章 |
+| `content/daily/YYYY-MM-DD.md` | 日报。一天一篇，见 [docs/daily-report.md](docs/daily-report.md) |
 
 新增产品时，在 `hugo.toml` 里追加一段：
 
