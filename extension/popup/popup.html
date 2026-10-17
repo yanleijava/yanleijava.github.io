@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BrowserTools</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>BrowserTools</h1>
+        <p class="subtitle">工具箱</p>
+      </div>
+      <button id="open-settings" type="button" class="text-button">设置</button>
+    </header>
+
+    <main>
+      <section class="tool" aria-labelledby="reply-title">
+        <div class="tool-head">
+          <h2 id="reply-title">X AI 回复</h2>
+          <span class="badge">X</span>
+        </div>
+        <p class="desc">在帖子详情页生成一条短回复，并插入回复框。不会自动发送。</p>
+        <button id="generate-reply" type="button" class="primary">生成回复</button>
+        <p id="reply-status" class="status" role="status"></p>
+      </section>
+
+      <section class="tool" aria-labelledby="summary-title">
+        <div class="tool-head">
+          <h2 id="summary-title">AI 总结当前网页</h2>
+        </div>
+        <p class="desc">读取当前标签页的正文，生成几条要点。不会改写页面。</p>
+        <button id="summarize-page" type="button" class="primary">总结此页</button>
+        <p id="summary-status" class="status" role="status"></p>
+        <pre id="summary-result" class="result" hidden></pre>
+        <button id="copy-summary" type="button" class="secondary" hidden>复制</button>
+      </section>
+    </main>
+
+    <script src="../lib/errors.js"></script>
+    <script src="../lib/language.js"></script>
+    <script src="../lib/prompts.js"></script>
+    <script src="../lib/x-url.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

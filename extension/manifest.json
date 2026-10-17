@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "BrowserTools",
+  "description": "浏览器工具箱：为 X 帖子起草回复，并总结当前网页。不会自动发送。",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "BrowserTools",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "https://mobile.x.com/*",
+    "https://mobile.twitter.com/*"
+  ],
+  "optional_host_permissions": ["https://*/*", "http://*/*"],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*",
+        "https://mobile.x.com/*",
+        "https://mobile.twitter.com/*"
+      ],
+      "js": [
+        "lib/errors.js",
+        "lib/language.js",
+        "lib/prompts.js",
+        "lib/x-url.js",
+        "content/x-status.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

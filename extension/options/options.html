@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BrowserTools 设置</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main>
+      <h1>大模型 API</h1>
+      <p class="lead">
+        X AI 回复和网页总结共用这里的设置。接口需要兼容 OpenAI Chat Completions。密钥只保存在本机浏览器中，不会写进扩展源码。
+      </p>
+
+      <form id="settings-form">
+        <label>
+          API Base URL
+          <input
+            id="api-base-url"
+            name="apiBaseUrl"
+            type="url"
+            placeholder="https://api.openai.com/v1"
+            autocomplete="off"
+            required
+          />
+        </label>
+        <p class="hint">通常以 /v1 结尾。扩展会请求该地址下的 /chat/completions。</p>
+
+        <label>
+          API Key
+          <span class="key-row">
+            <input id="api-key" name="apiKey" type="password" autocomplete="off" required />
+            <button id="toggle-key" type="button" class="secondary">显示</button>
+          </span>
+        </label>
+
+        <label>
+          模型名
+          <input id="model" name="model" type="text" placeholder="gpt-4o-mini" autocomplete="off" required />
+        </label>
+
+        <div class="actions">
+          <button id="save" type="submit" class="primary">保存</button>
+          <button id="test" type="button" class="secondary">测试连接</button>
+        </div>
+      </form>
+
+      <p id="status" class="status" role="status"></p>
+    </main>
+
+    <script src="../lib/errors.js"></script>
+    <script src="../lib/api.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>
