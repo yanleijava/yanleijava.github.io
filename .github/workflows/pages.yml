@@ -27,9 +27,9 @@ jobs:
 
       - name: Prepare site
         run: |
-          mkdir -p _site/assets
+          mkdir -p _site
           cp index.html site.css favicon.svg CNAME _site/
-          cp assets/avatar.jpg _site/assets/
+          cp -R assets _site/assets
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

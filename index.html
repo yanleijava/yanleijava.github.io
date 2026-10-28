@@ -4,14 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>超神</title>
-    <meta name="description" content="计划你的交易，交易你的计划。">
+    <meta name="description" content="持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/site.css">
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
-        var theme = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
+        document.documentElement.setAttribute("data-theme", saved || "dark");
       })();
     </script>
   </head>
@@ -33,10 +32,78 @@
         </button>
       </header>
       <main>
-        <p class="lead">你好，我是超神。</p>
-        <p>计划你的交易，交易你的计划。每天的市场记录放在 <a href="https://news.chaoshen.io/">资讯</a>，想留下来的文章放在 <a href="https://blog.chaoshen.io/">博客</a>。</p>
-        <p>也做了几个小东西：<a href="https://eth10000.com/">ETH 10000</a>、<a href="https://blog.chaoshen.io/mbti/">MBTI 16 型人格测试</a>、<a href="https://blog.chaoshen.io/mbti-kids/">小朋友图画偏好</a>，还有一份 <a href="https://blog.chaoshen.io/wufan/">公开推文画像</a>。</p>
-        <p>想打招呼的话，可以在 <a href="https://x.com/chaoshentouzi">X</a> 或 <a href="https://github.com/yanleijava">GitHub</a> 找到我。</p>
+        <div class="bio">
+          <p>你好，我是超神。</p>
+          <p>持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。</p>
+          <p>15 年软件研发经验，横跨研发、产品与业务落地。关注 AI Agent、自动化工作流与独立产品，探索 AI 驱动的效率变革与个人创造力；长期实践金融市场交易，研究威科夫理论、量价分析与量化策略。</p>
+          <p>这里记录技术实践、AI 创新、产品探索与交易思考。</p>
+          <p>知道是什么有效的，并不断重复。<br>知道什么是无效的，并努力避免。</p>
+        </div>
+        <div class="contacts">
+          <a class="icon-link" href="https://x.com/chaoshentouzi" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 10.3 22.4 1.5h-1.8l-6.7 7.6L8.6 1.5H2l8.1 11.5L2 22.5h1.8l7.1-8.1 5.7 8.1H22l-7.3-12.2Zm-2.5 2.8-.8-1.2L4.5 2.9h2.8l5.3 7.4.8 1.2 6.9 9.6h-2.8l-5.3-7.9Z"/></svg>
+          </a>
+          <a class="icon-link" href="https://github.com/yanleijava" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.9 9.6.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5.1 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.4 9.4 0 0 1 5 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 4-2.3 4.8-4.6 5.1.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4-1.3 6.9-5.1 6.9-9.6C22 6.6 17.5 2 12 2Z"/></svg>
+          </a>
+          <a class="email" href="mailto:chaoshentouzi@163.com">发邮件</a>
+        </div>
+        <svg class="wave" viewBox="0 0 640 14" aria-hidden="true">
+          <defs>
+            <pattern id="wave" width="18" height="14" patternUnits="userSpaceOnUse">
+              <path d="M0 7 Q4.5 1.5 9 7 T18 7" fill="none" stroke="currentColor" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="640" height="14" fill="url(#wave)"/>
+        </svg>
+        <section class="featured" aria-labelledby="projects-title">
+          <h2 id="projects-title">精选作品</h2>
+          <p class="section-note">一些已经放出来的小东西。</p>
+          <div class="projects">
+            <a class="project" href="https://news.chaoshen.io/">
+              <img src="/assets/products/news.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">资讯</span>
+                <span class="project-desc">每天的市场记录。</span>
+              </span>
+            </a>
+            <a class="project" href="https://blog.chaoshen.io/">
+              <img src="/assets/products/blog.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">博客</span>
+                <span class="project-desc">技术实践、AI 创新、产品探索与交易思考。</span>
+              </span>
+            </a>
+            <a class="project" href="https://eth10000.com/">
+              <img src="/assets/products/eth10000.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">ETH 10000</span>
+                <span class="project-desc">以太坊投资研究：公开策略信号、历史表现与数据。</span>
+              </span>
+            </a>
+            <a class="project" href="https://blog.chaoshen.io/mbti/">
+              <img src="/assets/products/mbti.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">MBTI 16 型人格测试</span>
+                <span class="project-desc">了解四维偏好，完成 48 题测试，查看 16 型完整报告。</span>
+              </span>
+            </a>
+            <a class="project" href="https://blog.chaoshen.io/mbti-kids/">
+              <img src="/assets/products/mbti-kids.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">小朋友图画偏好</span>
+                <span class="project-desc">给 6 岁及以下：家长读题，孩子在每题四张图里点一张。</span>
+              </span>
+            </a>
+            <a class="project" href="https://blog.chaoshen.io/wufan/">
+              <img src="/assets/products/wufan.svg" alt="" width="44" height="44">
+              <span>
+                <span class="project-name">公开推文画像</span>
+                <span class="project-desc">根据公开推文整理的交易者画像：作息、主题迁移与说话方式。</span>
+              </span>
+            </a>
+          </div>
+        </section>
       </main>
     </div>
     <script>
