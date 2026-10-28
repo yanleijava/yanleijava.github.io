@@ -6,7 +6,7 @@
     <title>超神</title>
     <meta name="description" content="持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/site.css?v=4">
+    <link rel="stylesheet" href="/site.css?v=5">
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -58,7 +58,15 @@
         </svg>
         <section class="featured" aria-labelledby="projects-title">
           <h2 id="projects-title">精选作品</h2>
-          <p class="section-note">一些已经放出来的小东西。</p>
+          <div class="section-row">
+            <p class="section-note">记录想法，创造产品，让每一个有价值的创意落地生长。</p>
+            <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-projects">
+              <span class="more-label">更多</span>
+              <svg class="more-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 9.5 12 15.5l6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
           <div class="projects">
             <a class="project" href="https://news.chaoshen.io/">
               <img src="/assets/products/news.svg" alt="" width="44" height="44">
@@ -107,12 +115,6 @@
               </a>
             </div>
           </div>
-          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-projects">
-            <span class="more-label">更多</span>
-            <svg class="more-chevron" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M6 9.5 12 15.5l6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
         </section>
       </main>
     </div>
