@@ -236,6 +236,81 @@ a {
   line-height: 1.6;
 }
 
+.more-wrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin-top: 0;
+  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.more-wrap.is-open {
+  grid-template-rows: 1fr;
+  margin-top: 14px;
+}
+
+.more-projects {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.more-projects .project {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.15s;
+}
+
+.more-wrap.is-open .more-projects .project {
+  opacity: 1;
+  transform: none;
+}
+
+.more-wrap.is-open .more-projects .project:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+.more-wrap.is-open .more-projects .project:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.more-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 10px;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.more-toggle:hover {
+  color: var(--ink);
+}
+
+.more-chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.35s ease;
+}
+
+.more-toggle[aria-expanded="true"] .more-chevron {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .more-wrap,
+  .more-projects .project,
+  .more-chevron {
+    transition: none;
+  }
+}
+
 @media (max-width: 639px) {
   .page {
     width: min(680px, calc(100% - 40px));

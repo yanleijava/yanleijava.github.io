@@ -6,7 +6,7 @@
     <title>超神</title>
     <meta name="description" content="持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/site.css?v=3">
+    <link rel="stylesheet" href="/site.css?v=4">
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -63,14 +63,14 @@
             <a class="project" href="https://news.chaoshen.io/">
               <img src="/assets/products/news.svg" alt="" width="44" height="44">
               <span>
-                <span class="project-name">资讯</span>
-                <span class="project-desc">每天的市场记录。</span>
+                <span class="project-name">财经科技日/周报</span>
+                <span class="project-desc">每天的市场与科技分享。</span>
               </span>
             </a>
             <a class="project" href="https://blog.chaoshen.io/">
               <img src="/assets/products/blog.svg" alt="" width="44" height="44">
               <span>
-                <span class="project-name">博客</span>
+                <span class="project-name">超神博客</span>
                 <span class="project-desc">技术实践、AI 创新、产品探索与交易思考。</span>
               </span>
             </a>
@@ -81,28 +81,38 @@
                 <span class="project-desc">以太坊投资研究：公开策略信号、历史表现与数据。</span>
               </span>
             </a>
-            <a class="project" href="https://blog.chaoshen.io/mbti/">
-              <img src="/assets/products/mbti.svg" alt="" width="44" height="44">
-              <span>
-                <span class="project-name">MBTI 16 型人格测试</span>
-                <span class="project-desc">了解四维偏好，完成 48 题测试，查看 16 型完整报告。</span>
-              </span>
-            </a>
-            <a class="project" href="https://blog.chaoshen.io/mbti-kids/">
-              <img src="/assets/products/mbti-kids.svg" alt="" width="44" height="44">
-              <span>
-                <span class="project-name">小朋友图画偏好</span>
-                <span class="project-desc">给 6 岁及以下：家长读题，孩子在每题四张图里点一张。</span>
-              </span>
-            </a>
-            <a class="project" href="https://blog.chaoshen.io/wufan/">
-              <img src="/assets/products/wufan.svg" alt="" width="44" height="44">
-              <span>
-                <span class="project-name">公开推文画像</span>
-                <span class="project-desc">根据公开推文整理的交易者画像：作息、主题迁移与说话方式。</span>
-              </span>
-            </a>
           </div>
+          <div class="more-wrap" id="more-projects" inert>
+            <div class="more-projects">
+              <a class="project" href="https://blog.chaoshen.io/mbti/">
+                <img src="/assets/products/mbti.svg" alt="" width="44" height="44">
+                <span>
+                  <span class="project-name">MBTI 16 型人格测试</span>
+                  <span class="project-desc">了解四维偏好，完成 48 题测试，查看 16 型完整报告。</span>
+                </span>
+              </a>
+              <a class="project" href="https://blog.chaoshen.io/mbti-kids/">
+                <img src="/assets/products/mbti-kids.svg" alt="" width="44" height="44">
+                <span>
+                  <span class="project-name">小朋友MBTI测试</span>
+                  <span class="project-desc">给 6 岁及以下：家长读题，孩子在每题四张图里点一张。</span>
+                </span>
+              </a>
+              <a class="project" href="https://blog.chaoshen.io/wufan/">
+                <img src="/assets/products/wufan.svg" alt="" width="44" height="44">
+                <span>
+                  <span class="project-name">WUFAN：公开推文画像</span>
+                  <span class="project-desc">根据公开推文整理的交易者画像：作息、主题迁移与说话方式。</span>
+                </span>
+              </a>
+            </div>
+          </div>
+          <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-projects">
+            <span class="more-label">更多</span>
+            <svg class="more-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 9.5 12 15.5l6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </section>
       </main>
     </div>
@@ -111,6 +121,17 @@
         var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", next);
         localStorage.setItem("theme", next);
+      });
+
+      var moreWrap = document.querySelector(".more-wrap");
+      var moreToggle = document.querySelector(".more-toggle");
+      var moreLabel = moreToggle.querySelector(".more-label");
+      moreToggle.addEventListener("click", function () {
+        var open = moreToggle.getAttribute("aria-expanded") === "true";
+        moreToggle.setAttribute("aria-expanded", open ? "false" : "true");
+        moreWrap.classList.toggle("is-open", !open);
+        moreWrap.inert = open;
+        moreLabel.textContent = open ? "更多" : "收起";
       });
     </script>
   </body>
