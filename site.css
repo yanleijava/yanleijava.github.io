@@ -1,0 +1,168 @@
+:root {
+  color-scheme: light;
+  --ink: #18181b;
+  --body: #71717a;
+  --line: #d4d4d8;
+  --paper: #ffffff;
+  --hover: #f4f4f5;
+  --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f4f4f5;
+  --body: #a1a1aa;
+  --line: #3f3f46;
+  --paper: #141416;
+  --hover: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--body);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: var(--ink);
+  text-decoration-color: currentColor;
+}
+
+.home {
+  min-height: 100svh;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  width: min(598px, calc(100% - 48px));
+  min-height: 100svh;
+  margin-inline: auto;
+}
+
+.page::before {
+  content: "";
+  flex: 2 1 0;
+  min-height: 64px;
+}
+
+.page::after {
+  content: "";
+  flex: 3 1 0;
+  min-height: 96px;
+}
+
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 560;
+  text-decoration: none;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.theme-toggle {
+  position: absolute;
+  right: -10px;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  color: var(--body);
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  color: var(--ink);
+  background: var(--hover);
+}
+
+.theme-toggle svg {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-sun {
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .icon-moon {
+  opacity: 0;
+}
+
+:root[data-theme="dark"] .icon-sun {
+  opacity: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 48px;
+}
+
+p {
+  margin: 0;
+}
+
+.lead {
+  color: var(--ink);
+}
+
+@media (max-width: 639px) {
+  .page {
+    width: min(598px, calc(100% - 40px));
+    min-height: auto;
+    padding-block: 48px 96px;
+  }
+
+  .page::before,
+  .page::after {
+    display: none;
+  }
+}
