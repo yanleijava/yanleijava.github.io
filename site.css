@@ -163,12 +163,65 @@ a {
 .bio {
   display: flex;
   flex-direction: column;
-  gap: 22px;
   margin-top: 40px;
 }
 
 .bio p {
   margin: 0;
+  color: var(--body);
+  font-weight: 400;
+}
+
+.bio .lead {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 560;
+  line-height: 1.6;
+}
+
+.bio strong {
+  color: var(--ink);
+  font-weight: 620;
+}
+
+.bio .lead + p {
+  margin-top: 18px;
+}
+
+.bio-rest {
+  display: grid;
+  grid-template-rows: 1fr;
+  margin-top: 22px;
+  transition: grid-template-rows 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.bio.is-compact .bio-rest {
+  grid-template-rows: 0fr;
+  margin-top: 0;
+}
+
+.bio-rest-inner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.bio.is-compact .bio-rest-inner {
+  opacity: 0;
+}
+
+.bio .motto {
+  color: var(--ink);
+  font-weight: 520;
+}
+
+.bio .motto span {
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .contacts {
@@ -370,6 +423,11 @@ a {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
+  }
+
+  .bio-rest,
+  .bio-rest-inner {
+    transition: none;
   }
 }
 

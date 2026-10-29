@@ -6,7 +6,7 @@
     <title>超神</title>
     <meta name="description" content="持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/site.css?v=6">
+    <link rel="stylesheet" href="/site.css?v=7">
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -32,12 +32,16 @@
         </button>
       </header>
       <main>
-        <div class="bio">
-          <p class="reveal d1">你好，我是超神。</p>
-          <p class="reveal d2">持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。</p>
-          <p class="reveal d3">超 10 年软件经验，横跨研发、产品与业务落地。关注 AI Agent、自动化工作流与独立产品，探索 AI 驱动的效率变革与个人创造力；长期实践金融市场交易，研究威科夫理论、量价分析与量化策略。</p>
-          <p class="reveal d4">这里记录技术实践、AI 创新、产品探索与交易思考。</p>
-          <p class="reveal d5">知道是什么有效的，并不断重复。<br>知道什么是无效的，并努力避免。</p>
+        <div class="bio" id="bio">
+          <p class="lead reveal d1">你好，我是<strong>超神</strong>。</p>
+          <p class="reveal d2">持续探索<strong>技术</strong>、<strong>AI</strong> 与<strong>金融市场</strong>，用<strong>系统思维</strong>解决问题，用技术创造价值。</p>
+          <div class="bio-rest">
+            <div class="bio-rest-inner">
+              <p class="reveal d3">超 <strong>10 年</strong>软件经验，横跨研发、产品与业务落地。关注 <strong>AI Agent</strong>、<strong>自动化工作流</strong>与<strong>独立产品</strong>，探索 AI 驱动的效率变革与个人创造力；长期实践金融市场交易，研究<strong>威科夫理论</strong>、<strong>量价分析</strong>与<strong>量化策略</strong>。</p>
+              <p class="reveal d4">这里记录<strong>技术实践</strong>、<strong>AI 创新</strong>、<strong>产品探索</strong>与<strong>交易思考</strong>。</p>
+              <p class="motto reveal d5">知道是什么有效的，并不断重复。<br><span>知道什么是无效的，并努力避免。</span></p>
+            </div>
+          </div>
         </div>
         <div class="contacts reveal d6">
           <a class="icon-link" href="https://x.com/chaoshentouzi" target="_blank" rel="noopener noreferrer" aria-label="X">
@@ -168,6 +172,7 @@
         moreToggle.setAttribute("aria-expanded", open ? "false" : "true");
         moreWrap.classList.toggle("is-open", !open);
         moreWrap.inert = open;
+        document.querySelector(".bio").classList.toggle("is-compact", !open);
         moreLabel.textContent = open ? "更多" : "收起";
       });
     </script>
