@@ -6,7 +6,7 @@
     <title>超神</title>
     <meta name="description" content="持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="/site.css?v=5">
+    <link rel="stylesheet" href="/site.css?v=6">
     <script>
       (function () {
         var saved = localStorage.getItem("theme");
@@ -16,7 +16,7 @@
   </head>
   <body class="home">
     <div class="page">
-      <header class="site-header">
+      <header class="site-header reveal">
         <a class="brand" href="/">
           <img class="avatar" src="/assets/avatar.jpg" alt="" width="32" height="32">
           <span>超神</span>
@@ -33,13 +33,13 @@
       </header>
       <main>
         <div class="bio">
-          <p>你好，我是超神。</p>
-          <p>持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。</p>
-          <p>超 10 年软件经验，横跨研发、产品与业务落地。关注 AI Agent、自动化工作流与独立产品，探索 AI 驱动的效率变革与个人创造力；长期实践金融市场交易，研究威科夫理论、量价分析与量化策略。</p>
-          <p>这里记录技术实践、AI 创新、产品探索与交易思考。</p>
-          <p>知道是什么有效的，并不断重复。<br>知道什么是无效的，并努力避免。</p>
+          <p class="reveal d1">你好，我是超神。</p>
+          <p class="reveal d2">持续探索技术、AI 与金融市场，用系统思维解决问题，用技术创造价值。</p>
+          <p class="reveal d3">超 10 年软件经验，横跨研发、产品与业务落地。关注 AI Agent、自动化工作流与独立产品，探索 AI 驱动的效率变革与个人创造力；长期实践金融市场交易，研究威科夫理论、量价分析与量化策略。</p>
+          <p class="reveal d4">这里记录技术实践、AI 创新、产品探索与交易思考。</p>
+          <p class="reveal d5">知道是什么有效的，并不断重复。<br>知道什么是无效的，并努力避免。</p>
         </div>
-        <div class="contacts">
+        <div class="contacts reveal d6">
           <a class="icon-link" href="https://x.com/chaoshentouzi" target="_blank" rel="noopener noreferrer" aria-label="X">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 10.3 22.4 1.5h-1.8l-6.7 7.6L8.6 1.5H2l8.1 11.5L2 22.5h1.8l7.1-8.1 5.7 8.1H22l-7.3-12.2Zm-2.5 2.8-.8-1.2L4.5 2.9h2.8l5.3 7.4.8 1.2 6.9 9.6h-2.8l-5.3-7.9Z"/></svg>
           </a>
@@ -48,7 +48,7 @@
           </a>
           <a class="email" href="mailto:chaoshentouzi@163.com">发邮件</a>
         </div>
-        <svg class="wave" viewBox="0 0 640 14" aria-hidden="true">
+        <svg class="wave reveal d7" viewBox="0 0 640 14" aria-hidden="true">
           <defs>
             <pattern id="wave" width="18" height="14" patternUnits="userSpaceOnUse">
               <path d="M0 7 Q4.5 1.5 9 7 T18 7" fill="none" stroke="currentColor" stroke-width="1"/>
@@ -57,8 +57,8 @@
           <rect width="640" height="14" fill="url(#wave)"/>
         </svg>
         <section class="featured" aria-labelledby="projects-title">
-          <h2 id="projects-title">精选作品</h2>
-          <div class="section-row">
+          <h2 id="projects-title" class="reveal d8">精选作品</h2>
+          <div class="section-row reveal d9">
             <p class="section-note">记录想法，创造产品，让每一个有价值的创意落地生长。</p>
             <button class="more-toggle" type="button" aria-expanded="false" aria-controls="more-projects">
               <span class="more-label">更多</span>
@@ -68,21 +68,21 @@
             </button>
           </div>
           <div class="projects">
-            <a class="project" href="https://news.chaoshen.io/">
+            <a class="project reveal d10" href="https://news.chaoshen.io/">
               <img src="/assets/products/news.svg" alt="" width="44" height="44">
               <span>
                 <span class="project-name">财经科技日/周报</span>
                 <span class="project-desc">每天的市场与科技分享。</span>
               </span>
             </a>
-            <a class="project" href="https://blog.chaoshen.io/">
+            <a class="project reveal d11" href="https://blog.chaoshen.io/">
               <img src="/assets/products/blog.svg" alt="" width="44" height="44">
               <span>
                 <span class="project-name">超神博客</span>
                 <span class="project-desc">技术实践、AI 创新、产品探索与交易思考。</span>
               </span>
             </a>
-            <a class="project" href="https://eth10000.com/">
+            <a class="project reveal d12" href="https://eth10000.com/">
               <img src="/assets/products/eth10000.svg" alt="" width="44" height="44">
               <span>
                 <span class="project-name">ETH 10000</span>
@@ -119,11 +119,46 @@
       </main>
     </div>
     <script>
-      document.querySelector(".theme-toggle").addEventListener("click", function () {
+      document.querySelector(".theme-toggle").addEventListener("click", function (event) {
         var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
+        var apply = function () {
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        };
+        var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce || !document.startViewTransition) {
+          apply();
+          return;
+        }
+        var rect = event.currentTarget.getBoundingClientRect();
+        var x = rect.left + rect.width / 2;
+        var y = rect.top + rect.height / 2;
+        var end = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+        var transition = document.startViewTransition(apply);
+        transition.ready.then(function () {
+          document.documentElement.animate(
+            {
+              clipPath: [
+                "circle(0px at " + x + "px " + y + "px)",
+                "circle(" + end + "px at " + x + "px " + y + "px)"
+              ]
+            },
+            {
+              duration: 520,
+              easing: "ease-in",
+              pseudoElement: "::view-transition-new(root)"
+            }
+          );
+        });
       });
+
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        setTimeout(function () {
+          document.documentElement.classList.add("entered");
+        }, 1300);
+      } else {
+        document.documentElement.classList.add("entered");
+      }
 
       var moreWrap = document.querySelector(".more-wrap");
       var moreToggle = document.querySelector(".more-toggle");
